@@ -4,7 +4,7 @@
 Author       : taooooo 791545998@qq.com
 Date         : 2024-05-16 22:45:57
 LastEditors  : taooooo 791545998@qq.com
-LastEditTime : 2024-05-17 22:57:12
+LastEditTime : 2024-05-18 10:27:01
 Description  : 
 
 '''
@@ -22,11 +22,11 @@ week = 5
 # start_time = "12:00"
 # end_time = "13:00"
 # 多个时间段
-time_slots = [("12:00", "13:00"), ("13:00", "14:00")]  
+time_slots = [("13:00", "14:00")]  
 # 请将venue_id替换为实际的场地ID
-venue_id = 8
+# venue_id = 8
 # 请将Authorization替换为实际的token
-Authorization = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiJhNzQ5MDlmMS0wYjliLTQ3YWMtYjU2MS0zMzcxZDQwZDNlOGIiLCJpYXQiOjE3MTU5NTY5MjMsImV4cCI6MTcxNjA0MzMyMywidXNlckluZm8iOnsidXNlclJvbGVJZCI6MSwiYWNjb3VudCI6IjIwMjIyMTAxNzc5OCIsInNubyI6IjIwMjIyMTAxNzc5OCJ9LCJzZXgiOjEsInVzZXJJZCI6MjU5MjM0NTA1NzgzMzcsInNlcmlhbFZlcnNpb25VSUQiOi03NzAwODI1OTA0ODMwNzA0NjE5LCJpc0luaXRQYXNzd29yZCI6ZmFsc2UsInBob25lIjoiJHNpZ246cTl4djNBME4zMmtESkQyVVhueHlYZz09Iiwibmlja25hbWUiOiLljY7mhYjmtpsiLCJ0YWciOiJtaW5pIiwiaXNSZWFsTmFtZSI6dHJ1ZSwiYWNjb3VudCI6IiRzaWduOk1BN1krcFhGR0JDeEZaSlFKalNmQUE9PSJ9.Av90gMxMaYP6X8RA5QABEovtgA8P3LY8iDKnnB5UltH9KlgE0hDxMKgKgNDmdTSgBhdpWiTuLKKzS9MZ8Wpt9jy0-VQTwnuUb8xY86WvefvOLTG0vfALjrP-nnrhKwPfBYTny5bsKwRY9iXSDsi-GsKMhsqrDSyLf6DMtwlmJEijrTJrb1vXbwuxjtUv_s_efNpyxJniopgpGF8q0LxCYAA9TS9z05z89iGGfyeBbi0OjcK34w1x1VCnn2bnRTXjPE_FVg47tdNRxaKODzIC7buKKvIDxazp79AFC15UKym4vJRJOXqO0AQnaMebVx9P316stHOXYscOAAYt9SeC0Q"
+Authorization = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiI5ODIxZmY0Yi0yZjYwLTQ4NWEtYmYyMC0zZDNkNDViZmRiMDEiLCJpYXQiOjE3MTU5OTg4NjQsImV4cCI6MTcxNjA4NTI2NCwidXNlckluZm8iOnsidXNlclJvbGVJZCI6MSwiYWNjb3VudCI6IjIwMjIyMTAxNzc5OCIsInNubyI6IjIwMjIyMTAxNzc5OCJ9LCJzZXgiOjEsInVzZXJJZCI6MjU5MjM0NTA1NzgzMzcsInNlcmlhbFZlcnNpb25VSUQiOi03NzAwODI1OTA0ODMwNzA0NjE5LCJpc0luaXRQYXNzd29yZCI6ZmFsc2UsInBob25lIjoiJHNpZ246cTl4djNBME4zMmtESkQyVVhueHlYZz09Iiwibmlja25hbWUiOiLljY7mhYjmtpsiLCJ0YWciOiJtaW5pIiwiaXNSZWFsTmFtZSI6dHJ1ZSwiYWNjb3VudCI6IiRzaWduOk1BN1krcFhGR0JDeEZaSlFKalNmQUE9PSJ9.RUUtj8E0jJMbQbdUkyQXoM6daupR8wsJBu6B4FRf8kK3XcixIOEWqaZURQilDJZyOxbA1yXSFCumVy3M0mOPx9w2GmsDOZlDu93VIQN7-qklP7rZIA01s2CFC8JiPcNR1ebb8rYSct2FUIwWK8SZDwvCnXgsitkUIM5MSLoKxgmnFIdaOJ45eB8FEYRHX7jNX979tMExXpujQNwVEzDeARvdZ8N4WaG8YxgS6mVZ1SEwcDf4HSxCdHzq4nvac39V8ys7WonqZcyuZ2BF4_JzfRMX1eAU0h3qA8M1zQQLJ_e1L588KVoUgErvfZ-ImeFSTSUBN6QW3DSbLz-saAOaEw"
 
 
 # 场地的venueId
@@ -76,39 +76,41 @@ def get_belong_date(date_string):
 
 
 def book_venue(start_time, end_time):
-    # 请求体
-    payload = {
-        "receipts": 0,
-        "mode": "week",
-        "buyerSource": 1,
-        "stadiumId": 1,
-        "rentals": [
-            {
-                "venueId": venue_ids[venue_id],  # 替换为实际的场地ID
-                "belongDate": get_belong_date(date_string),  # 替换为实际的日期时间戳
-                "week": week,
-                "start": start_time,
-                "end": end_time
-            }
-        ]
-    }
-
     while True:
-        # 发送POST请求，关闭SSL证书验证
-        response = requests.post("https://venue.spe.scut.edu.cn/api/mini/order/rental/orders/apply", headers=headers, data=json.dumps(payload), verify=False)
-        response_data = json.loads(response.text)
-       
-        # 如果请求成功，打印响应并退出循环
-        if response_data["code"] == 1:
-            print("预定成功！")
-            print(response.text)
-            break
-        else:
-            print("预定失败，正在重试...")
-            print(response.text)
+        for venue_id in venue_ids.keys():
+            # 请求体
+            payload = {
+                "receipts": 0,
+                "mode": "week",
+                "buyerSource": 1,
+                "stadiumId": 1,
+                "rentals": [
+                    {
+                        "venueId": venue_ids[venue_id],  # 替换为实际的场地ID
+                        "belongDate": get_belong_date(date_string),  # 替换为实际的日期时间戳
+                        "week": week,
+                        "start": start_time,
+                        "end": end_time
+                    }
+                ]
+            }
 
-        # 等待0.1秒后再次尝试
-        time.sleep(0.1)
+            # 发送POST请求，关闭SSL证书验证
+            response = requests.post("https://venue.spe.scut.edu.cn/api/mini/order/rental/orders/apply", headers=headers, data=json.dumps(payload), verify=False)
+            response_data = json.loads(response.text)
+           
+            # 如果请求成功，打印响应并退出循环
+            if response_data["code"] == 1:
+                print("预定成功！")
+                print(response.text)
+                return
+            else:
+                print("预定失败，正在重试...")
+                print(response.text)
+
+            # 等待0.1秒后再次尝试
+            time.sleep(0.1)
+        time.sleep(0.2)
 
 def threads_join(threads):
     '''
