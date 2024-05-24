@@ -4,7 +4,7 @@
 Author       : taooooo 791545998@qq.com
 Date         : 2024-05-16 22:45:57
 LastEditors  : taooooo 791545998@qq.com
-LastEditTime : 2024-05-18 10:27:01
+LastEditTime : 2024-05-24 21:47:19
 Description  : 
 
 '''
@@ -16,17 +16,17 @@ import threading
 from datetime import datetime, timedelta
 
 # 请将date_string、week替换为实际的值
-date_string = "2024-05-24"
-week = 5 
+date_string = "2024-05-30"
+week = 4
 # 请将start_time和end_time替换为实际的时间段
 # start_time = "12:00"
 # end_time = "13:00"
 # 多个时间段
-time_slots = [("13:00", "14:00")]  
+time_slots = [("12:00", "13:00"), ("13:00", "14:00")]  
 # 请将venue_id替换为实际的场地ID
 # venue_id = 8
 # 请将Authorization替换为实际的token
-Authorization = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiI5ODIxZmY0Yi0yZjYwLTQ4NWEtYmYyMC0zZDNkNDViZmRiMDEiLCJpYXQiOjE3MTU5OTg4NjQsImV4cCI6MTcxNjA4NTI2NCwidXNlckluZm8iOnsidXNlclJvbGVJZCI6MSwiYWNjb3VudCI6IjIwMjIyMTAxNzc5OCIsInNubyI6IjIwMjIyMTAxNzc5OCJ9LCJzZXgiOjEsInVzZXJJZCI6MjU5MjM0NTA1NzgzMzcsInNlcmlhbFZlcnNpb25VSUQiOi03NzAwODI1OTA0ODMwNzA0NjE5LCJpc0luaXRQYXNzd29yZCI6ZmFsc2UsInBob25lIjoiJHNpZ246cTl4djNBME4zMmtESkQyVVhueHlYZz09Iiwibmlja25hbWUiOiLljY7mhYjmtpsiLCJ0YWciOiJtaW5pIiwiaXNSZWFsTmFtZSI6dHJ1ZSwiYWNjb3VudCI6IiRzaWduOk1BN1krcFhGR0JDeEZaSlFKalNmQUE9PSJ9.RUUtj8E0jJMbQbdUkyQXoM6daupR8wsJBu6B4FRf8kK3XcixIOEWqaZURQilDJZyOxbA1yXSFCumVy3M0mOPx9w2GmsDOZlDu93VIQN7-qklP7rZIA01s2CFC8JiPcNR1ebb8rYSct2FUIwWK8SZDwvCnXgsitkUIM5MSLoKxgmnFIdaOJ45eB8FEYRHX7jNX979tMExXpujQNwVEzDeARvdZ8N4WaG8YxgS6mVZ1SEwcDf4HSxCdHzq4nvac39V8ys7WonqZcyuZ2BF4_JzfRMX1eAU0h3qA8M1zQQLJ_e1L588KVoUgErvfZ-ImeFSTSUBN6QW3DSbLz-saAOaEw"
+Authorization = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiI4MzliZWJkNS1lMGQ0LTRiZGUtOWQ0YS0wNjM3N2YwYTc4NmUiLCJpYXQiOjE3MTY0NzU4MjAsImV4cCI6MTcxNjU2MjIyMCwidXNlckluZm8iOnsidXNlclJvbGVJZCI6MSwiYWNjb3VudCI6IjIwMjIyMTAxNzc5OCIsInNubyI6IjIwMjIyMTAxNzc5OCJ9LCJzZXgiOjEsInVzZXJJZCI6MjU5MjM0NTA1NzgzMzcsInNlcmlhbFZlcnNpb25VSUQiOi03NzAwODI1OTA0ODMwNzA0NjE5LCJpc0luaXRQYXNzd29yZCI6ZmFsc2UsInBob25lIjoiJHNpZ246cTl4djNBME4zMmtESkQyVVhueHlYZz09Iiwibmlja25hbWUiOiLljY7mhYjmtpsiLCJ0YWciOiJtaW5pIiwiaXNSZWFsTmFtZSI6dHJ1ZSwiYWNjb3VudCI6IiRzaWduOk1BN1krcFhGR0JDeEZaSlFKalNmQUE9PSJ9.H4O85QMC0X1LAFeStyN3o4IWRMx4WPjmO6CY8k0eFX5oHX2AR_jRJgKh2FslTlUQbi4bQx5W-0wsOIkgsVzz6ip2-_o1YAyLSwk_o2pa5IN0SWqFL5O3toBiN3isbGA9jPJ7ZhGS0rtYnbXuYxeLziP-JNAGrOdDPLX2aNtfvUZpVETAeZv4spLTTfDscx3DaaNHUeYC1UIB99ofrjeCADeWy7jDR1OxhHP2rPjrRKRA2V3skxfF3qTgv6JwEZ-zU0SJMdwr4bJMbhF6E_vqf9zcXkkQWgojiCffFtUGbBxAqne9L0O0BJtzcdTL9ufGKfhg0lYcRYQNY-29hZcrCg"
 
 
 # 场地的venueId
@@ -38,9 +38,9 @@ venue_ids = {
     7: 512037093039890,
     8: 512160523250891,
     9: 512288707374892,
-    10: 512392775798893,
-    11: 512497844222894,
-    12: 512602912646895
+    10: 512382636613893,
+    11: 51246724428894,
+    12: 512536644146895
 }
 
 # 请求头
