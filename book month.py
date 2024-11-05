@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # coding=utf-8
 '''
-Author       : taooooo 791545998@qq.com
-Date         : 2024-05-16 22:45:57
+Author       : lambzzz 791545998@qq.com
+Date         : 2024-10-31 16:02:25
 LastEditors  : lambzzz 791545998@qq.com
-LastEditTime : 2024-10-19 23:42:01
+LastEditTime : 2024-10-31 18:07:29
 Description  : 
 
 '''
@@ -16,7 +16,7 @@ import threading
 from datetime import datetime, timedelta
 
 # 请将date_string、week替换为实际的值
-date_string = "2024-10-26"
+date_string = "2024-11-02"
 week = 6
 # 请将start_time和end_time替换为实际的时间段
 # start_time = "12:00"
@@ -26,7 +26,7 @@ time_slots = [("20:00", "22:00")]
 # 请将venue_id替换为实际的场地ID
 # venue_id = 8
 # 请将Authorization替换为实际的token
-Authorization = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiJlZjZmOTc4Yi04MDZiLTQzYjQtOWVlNi1lYTg0OTE4NDdiZDciLCJpYXQiOjE3MjkzNTAyMDEsImV4cCI6MTcyOTQzNjYwMSwidXNlckluZm8iOnsidXNlclJvbGVJZCI6MSwiYWNjb3VudCI6IjIwMjIyMTAxNzc5OCIsInNubyI6IjIwMjIyMTAxNzc5OCJ9LCJzZXgiOjEsInVzZXJJZCI6MjU5MjM0NTA1NzgzMzcsInNlcmlhbFZlcnNpb25VSUQiOi03NzAwODI1OTA0ODMwNzA0NjE5LCJpc0luaXRQYXNzd29yZCI6ZmFsc2UsInBob25lIjoiJHNpZ246cTl4djNBME4zMmtESkQyVVhueHlYZz09Iiwibmlja25hbWUiOiLljY7mhYjmtpsiLCJ0YWciOiJtaW5pIiwiaXNSZWFsTmFtZSI6dHJ1ZSwiYWNjb3VudCI6IiRzaWduOk1BN1krcFhGR0JDeEZaSlFKalNmQUE9PSJ9.FNhbQDHdj9VpHeMEj0BIXprsw5l198fw1lYrjJ6DkZ0pNoVd2jJE6ncRnaT1T7qWPvQVnSjsEJ9cB2BZaiAOBuaCDlczqqGwqdR227NTtJeFCCtlVSRUC7U9OIduSqR-I-D1eZ2zvAH5OBzNm5ZvN1TN-GDFqSLPANJWeLKembZDsxKqKNXUGEYdtAa-1XKr1jpIiKzobiEOhFvH0mYSljYcnPzwjUVmY1jw1J_2pU37neT2XLKZ7m-q1kY2zJwHG5N0m5nPmULfh471LOW5lOTzzVar7zesjnx-82gnpfHPa-PqH_12ihEmR3rBPTlKzRq-GoDHMKNBYaTBI3Sb9g"
+Authorization = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJqdGkiOiI4MDQ1MzA1OC01NWU4LTRhMjItYWVlZi1hM2M5MjllN2E0YjciLCJpYXQiOjE3MzAzNjEzOTcsImV4cCI6MTczMDQ0Nzc5NywidXNlckluZm8iOnsidXNlclJvbGVJZCI6MSwiYWNjb3VudCI6IjIwMjIyMTAxNzc5OCIsInNubyI6IjIwMjIyMTAxNzc5OCJ9LCJzZXgiOjEsInVzZXJJZCI6MjU5MjM0NTA1NzgzMzcsInNlcmlhbFZlcnNpb25VSUQiOi03NzAwODI1OTA0ODMwNzA0NjE5LCJpc0luaXRQYXNzd29yZCI6ZmFsc2UsInBob25lIjoiJHNpZ246cTl4djNBME4zMmtESkQyVVhueHlYZz09Iiwibmlja25hbWUiOiLljY7mhYjmtpsiLCJ0YWciOiJtaW5pIiwiaXNSZWFsTmFtZSI6dHJ1ZSwiYWNjb3VudCI6IiRzaWduOk1BN1krcFhGR0JDeEZaSlFKalNmQUE9PSJ9.k4zcO6BGTXF_QKmDMUWVge_G_kfQdkVGg6gwCu2HbxvbsVdwpsY6F1MMT0-LgooGVp9odpI9nG8PffxlBoraRrmfKORjPZQTpZypnxl7A1IP8PGc1Bv60YoXanEac_1gdFUDjyI75QXCLurGSXQjZoX78XjnWLDO-A-U_LRE-XLWKv06x0S-EHEOODfk9eJP8rxF1t57CISq1OE6yB7mupNgfOUeQg26A1rAkLbLQdgXcOVHTyMhgUyaAkR8tQJ0hUZEdSFkt23wx7TFUR2sKespqiBalHmWFC70ev8ccu_R61soh5Vq2XUq_PI2_Y3QxejaX3ZsnQLvJWcmiYKbJg"
 # 停止信号
 should_stop = False
 
@@ -71,32 +71,39 @@ def calculate_belong_date(days_in_future):
 
 def get_belong_date(date_string):
     # 将日期字符串转换为datetime对象
-    date = datetime.strptime(date_string, "%Y-%m-%d")
-
-    # 将datetime对象转换为时间戳（以毫秒为单位）
-    timestamp = int(date.timestamp() * 1000)
-
-    return timestamp
+    start_date = datetime.strptime(date_string, "%Y-%m-%d")
+    
+    # 获取该月的所有同一天的日期
+    dates = []
+    current_date = start_date
+    while current_date.month == start_date.month:
+        dates.append(current_date)
+        current_date += timedelta(weeks=1)
+    
+    # 将这些日期转换为时间戳（以毫秒为单位）
+    timestamps = [int(date.timestamp() * 1000) for date in dates]
+    return timestamps
 
 
 
 def book_venue(start_time, end_time):
+    timestampe = get_belong_date(date_string)
     while not should_stop:
         for venue_id in venue_ids.keys():
             # 请求体
             payload = {
                 "receipts": 0,
-                "mode": "week",
+                "mode": "month",
                 "buyerSource": 1,
                 "stadiumId": 1,
                 "rentals": [
                     {
                         "venueId": venue_ids[venue_id],  # 替换为实际的场地ID
-                        "belongDate": get_belong_date(date_string),  # 替换为实际的日期时间戳
+                        "belongDate": timestampe[0],  # 替换为实际的日期时间戳
                         "week": week,
                         "start": start_time,
                         "end": end_time
-                    }
+                    },
                 ]
             }
 
@@ -138,8 +145,8 @@ def wait_until(target_time: datetime):
 
 if __name__ == "__main__":
 
-    target_time = datetime.now().replace(hour=23, minute=59, second=35, microsecond=0)
-    wait_until(target_time)
+    target_time = datetime.now().replace(hour=17, minute=59, second=35, microsecond=0)
+    # wait_until(target_time)
     print("开始预定...")
 
     # 创建线程列表
